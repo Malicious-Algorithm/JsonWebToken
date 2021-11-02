@@ -3,7 +3,7 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuaWNrbmFtZSI6IkFkbWluaXN0c
 
 ###
 
-POST http://localhost:3000/api/user/register
+POST https://carrito-jwt.herokuapp.com/api/user/register
 Content-Type: application/json
 
 {
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/api/user/users/login
+POST https://carrito-jwt.herokuapp.com/api/user/users/login
 Content-Type: application/json
 
 {

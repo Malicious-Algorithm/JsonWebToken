@@ -63,10 +63,11 @@ exports.verificarUser = async (req, res) => {
        
         if(user == null) {
             res.status(400).send('Usuario no encontrado') 
+            return
         }
         
         if(await bcrypt.compare(req.body.password, user.password)){
-            res.send('Autenticado!');
+            res.send('Autenticado!'); 
         }else{
             res.send('Incorrecto');
         }
