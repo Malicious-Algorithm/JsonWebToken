@@ -67,11 +67,11 @@ exports.verificarUser = async (req, res) => {
         }
         
         if(await bcrypt.compare(req.body.password, user.password)){
-            res.send('Autenticado!'); 
+            res.json({status:'Autenticado!'}); 
         }else{
-            res.send('Incorrecto');
+            res.json({status:'Autenticado!'}); 
         }
-
+        
     }catch (error) {
         res.status(500).send();
     }
