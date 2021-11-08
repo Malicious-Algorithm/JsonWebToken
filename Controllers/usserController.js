@@ -62,16 +62,15 @@ exports.verificarUser = async (req, res) => {
           const user = await User.findOne({nickname: req.body.nickname});
        
         if(user == null) {
-            res.status(400).send('Usuario no encontrado') 
-            return
+            res.status(400).json({status:'Usuario no encontrado'}) 
         }
         
         if(await bcrypt.compare(req.body.password, user.password)){
-            res.json({status:'Autenticado!'}); 
+            res.json({status:'Autenticado!'});
         }else{
-            res.json({status:'Autenticado!'}); 
+            res.json({status:'Incorrecto'});
         }
-        
+
     }catch (error) {
         res.status(500).send();
     }

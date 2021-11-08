@@ -1,5 +1,28 @@
-GET http://localhost:3000/api/user/admin
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuaWNrbmFtZSI6IkFkbWluaXN0cmFkb3IiLCJlbWFpbCI6ImFkbWluaXN0cmF0b3JAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkdGpzZ2lBQzN6SWxZNnV0ZElMbXo1LmFFc00vbGhjRVhweHBOTEsyTC5sNHYxN0ZQcUtnYWEiLCJpYXQiOjE2MzM4NzcxNDYsImV4cCI6MTYzMzg3ODA0Nn0.F1D-EOjbvkXrkkIfAjJH212AhVyxiqSbtLEuyfS7bN0
+GET https://carrito-jwt.herokuapp.com/api/user/admin
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuaWNrbmFtZSI6IkFkbWluaXN0cmFkb3IyIiwiZW1haWwiOiJhZG1pbmlzdHJhdG9yMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRvL0lNeDdRYXl1OVc4QlIuZU9mNXAuRUZjdnhVejZlakEyVTRCMy9ra25DNEQ1NWoyOFRWcSIsImlhdCI6MTYzNTE5NjgyNiwiZXhwIjoxNjM1MTk3NzI2fQ.fJTAH3Pruu5rv6kfGeTHPr_dcKgefXg8Cb0fSRCebbI
+
+###
+
+POST https://arquitectura2-api.herokuapp.com/products
+Content-Type: application/json
+
+{
+    "name": "Fer",
+    "price": "2",
+    "stock": "66",
+    "available": true
+}
+
+###
+
+PUT https://arquitectura2-api.herokuapp.com/customers/6177306f9db9180016d967fe
+
+{
+    "name": "Fer2",
+    "lastname": "Gonzalez2",
+    "email": "fer.gonzal2@gmail.com",
+    "phone": "345345345"
+}
 
 ###
 
@@ -9,7 +32,7 @@ Content-Type: application/json
 {
     "nickname": "Administrador2",
     "email": "administrator2@gmail.com",
-    "password": "12345212129"
+    "password": "1234521219"
 }
 
 ###
@@ -18,6 +41,6 @@ POST https://carrito-jwt.herokuapp.com/api/user/users/login
 Content-Type: application/json
 
 {
-    "nickname" : "",
-    "password": ""
-}   
+    "nickname" : "Administrador2",
+    "password": "1234521219"
+}
