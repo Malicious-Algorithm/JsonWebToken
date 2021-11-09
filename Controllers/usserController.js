@@ -62,27 +62,27 @@ exports.verificarUser = async (req, res) => {
           const user = await User.findOne({nickname: req.body.nickname});
           const user2 = { 
             nickname: req.body.nickname, 
-        }
+          }
         
-        if(user == null) {
-            res.status(400).json({status:'Usuario no encontrado'}) 
-        }
-        
-        if(await bcrypt.compare(req.body.password, user.password)){
-            const refreshToken = jwt.sign( user2, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '15m'})
-            res.json({
-                status:'Autenticado!',
-                refreshToken: refreshToken
-            });
-        }else{
-            res.json({status:'Incorrecto'});
-        }
+            if(user == null) {
+                res.status(400).json({status:'Usuario no encontrado'}) 
+            }
+            
+            if(await bcrypt.compare(req.body.password, user.password)){
+                const refreshToken = jwt.sign( user2, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '15m'})
+                res.json({
+                    status:'Autenticado!',
+                    refreshToken: refreshToken
+                });
+            }else{
+                res.json({status:'Incorrecto'});
+            }
 
-    }catch (error) {
+        }catch (error) {
         res.status(500).send();
     }
 
-}
+}   
 
 
 exports.authToken = (req, res, next) => {
@@ -94,8 +94,10 @@ exports.authToken = (req, res, next) => {
     }
 
     try{
-        const verificado = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        req.user = verificado
+        //const verificado = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        const verificado2 = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET);
+        
+        req.user = verificado2
         next();
     
     }catch (error){
