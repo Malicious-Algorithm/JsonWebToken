@@ -60,13 +60,20 @@ exports.verificarUser = async (req, res) => {
     
     try{
           const user = await User.findOne({nickname: req.body.nickname});
-       
+          const user2 = { 
+            nickname: req.body.nickname, 
+        }
+        
         if(user == null) {
             res.status(400).json({status:'Usuario no encontrado'}) 
         }
         
         if(await bcrypt.compare(req.body.password, user.password)){
-            res.json({status:'Autenticado!'});
+            const refreshToken = jwt.sign( user2, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '15m'})
+            res.json({
+                status:'Autenticado!',
+                refreshToken: refreshToken
+            });
         }else{
             res.json({status:'Incorrecto'});
         }

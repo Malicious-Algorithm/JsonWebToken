@@ -30,8 +30,8 @@ POST https://carrito-jwt.herokuapp.com/api/user/register
 Content-Type: application/json
 
 {
-    "nickname": "Administrador2",
-    "email": "administrator2@gmail.com",
+    "nickname": "Administrador8",
+    "email": "administrator8@gmail.com",
     "password": "1234521219"
 }
 
@@ -41,6 +41,15 @@ POST https://carrito-jwt.herokuapp.com/api/user/users/login
 Content-Type: application/json
 
 {
-    "nickname" : "Administrador2",
+    "nickname" : "Administrador7",
     "password": "1234521219"
+}
+
+###
+POST http://localhost:3000/api/user/users/login
+Content-Type: application/json
+
+{
+    "nickname" : "Administrador8",
+    "password": "12345212190"
 }
